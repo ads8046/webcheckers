@@ -8,7 +8,7 @@ a web micro-framework.
 
 - Mason Zhong
 - Atharva Shivankar
-- MEMBER3
+- Johnathon Igleheart
 - MEMBER4
 
 
