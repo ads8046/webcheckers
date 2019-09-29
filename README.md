@@ -7,7 +7,7 @@ a web micro-framework.
 ## Team
 
 - Mason Zhong
-- MEMBER2
+- Atharva Shivankar
 - MEMBER3
 - MEMBER4
 
