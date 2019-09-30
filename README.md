@@ -9,7 +9,7 @@ a web micro-framework.
 - Mason Zhong
 - Atharva Shivankar
 - Johnathon Igleheart
-- MEMBER4
+- Cam Perdue
 
 
 ## Prerequisites
