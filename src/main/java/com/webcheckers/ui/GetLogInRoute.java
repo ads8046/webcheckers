@@ -37,6 +37,7 @@ public class GetLogInRoute implements Route {
         LOG.finer("GetLogInRoute is invoked");
         Map<String, Object> vm = new HashMap<>();
 
+        vm.put("title", "Sign in page");
 
         return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
     }
