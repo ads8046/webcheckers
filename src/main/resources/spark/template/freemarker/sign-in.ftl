@@ -15,6 +15,14 @@
 
     <div class="body">
 
+        <br/>
+        Username:
+        <input name="myUsername" />
+        <br/><br/>
+        <button type="submit">Sign In</button>
+        <br/>
+
+
         <!-- Provide a message to the user, if supplied. -->
         <#include "message.ftl" />
 
