@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 
+import com.webcheckers.application.PlayerLobby;
 import spark.TemplateEngine;
 
 
@@ -54,10 +55,16 @@ public class WebServer {
    */
   public static final String HOME_URL = "/";
 
+  /**
+   * the URL pattern to request the sign-in page
+   */
+  public static final String SIGNIN_URL = "sign-in";
+
   //
   // Attributes
   //
 
+  private final PlayerLobby playerLobby;
   private final TemplateEngine templateEngine;
   private final Gson gson;
 
@@ -76,11 +83,12 @@ public class WebServer {
    * @throws NullPointerException
    *    If any of the parameters are {@code null}.
    */
-  public WebServer(final TemplateEngine templateEngine, final Gson gson) {
+  public WebServer(final PlayerLobby playerLobby, final TemplateEngine templateEngine, final Gson gson) {
     // validation
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     Objects.requireNonNull(gson, "gson must not be null");
     //
+    this.playerLobby = playerLobby;
     this.templateEngine = templateEngine;
     this.gson = gson;
   }
@@ -138,6 +146,9 @@ public class WebServer {
 
     // Shows the Checkers game Home page.
     get(HOME_URL, new GetHomeRoute(templateEngine));
+
+    //shows sign in page
+    get(SIGNIN_URL, new GetLogInRoute(templateEngine));
 
     //
     LOG.config("WebServer is initialized.");
