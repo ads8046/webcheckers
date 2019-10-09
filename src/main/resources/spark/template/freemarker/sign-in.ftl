@@ -15,12 +15,15 @@
 
     <div class="body">
 
-        <br/>
-        Username:
-        <input name="myUsername" />
-        <br/><br/>
-        <button type="submit">Sign In</button>
-        <br/>
+
+        <form action="./" method="GET">
+            <br/>
+            Username:
+            <input name="myUsername" />
+            <br/><br/>
+            <button type="submit">Sign In</button>
+            <br/>
+        <form/>
 
 
         <!-- Provide a message to the user, if supplied. -->
