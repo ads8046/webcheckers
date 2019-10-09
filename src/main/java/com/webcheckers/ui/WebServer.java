@@ -56,9 +56,9 @@ public class WebServer {
   public static final String HOME_URL = "/";
 
   /**
-   * the URL pattern to request the sign-in page
+   * The URL pattern to request the Sign in page.
    */
-  public static final String SIGNIN_URL = "sign-in";
+  public static final String SIGNIN_URL = "/signin";
 
   //
   // Attributes
@@ -83,7 +83,7 @@ public class WebServer {
    * @throws NullPointerException
    *    If any of the parameters are {@code null}.
    */
-  public WebServer(final PlayerLobby playerLobby, final TemplateEngine templateEngine, final Gson gson) {
+  public WebServer(final TemplateEngine templateEngine, final Gson gson) {
     // validation
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     Objects.requireNonNull(gson, "gson must not be null");
