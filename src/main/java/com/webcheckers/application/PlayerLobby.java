@@ -3,10 +3,12 @@ package com.webcheckers.application;
 import com.webcheckers.model.Player;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class PlayerLobby {
 
-    private ArrayList<Player> players;
+    private List<Player> players;
     private Player user;
 
     public PlayerLobby() {
@@ -14,13 +16,11 @@ public class PlayerLobby {
     }
 
     public boolean isUserTaken(String username){
-        boolean result = true;
-        for(int i = 0; i < players.size(); i++) {
-            if (players.get(i).getPlayerName().equals(username)){
+        boolean result =  false;
+        for (Player p: players) {
+            if (p.getPlayerName().equals(username)) {
                 result = true;
-            }
-            else {
-                result = false;
+                break;
             }
         }
         return result;

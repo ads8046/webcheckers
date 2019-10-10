@@ -64,26 +64,18 @@ public class PostSignInRoute implements Route {
 
         vm.put("title", "Sign in page");
 
-        playerLobby.addPlayer(usernameStr);
-
-        response.redirect(WebServer.HOME_URL);
-
-        return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+        if (!nameIsValid) {
+            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
+            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+        } else if (playerLobby.isUserTaken(usernameStr)) {
+            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
+            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+        } else {
+            playerLobby.addPlayer(usernameStr);
+            response.redirect(WebServer.HOME_URL);
+            return templateEngine.render(new ModelAndView(vm, "home.ftl"));
+        }
     }
+
+
 }
-
-
-//        if ( playerLobby.isUserTaken(usernameStr) ) {
-//            vm.put("ERROR", "Username invalid - choose another one");
-//        }
-
-//        if (!isValid(usernameStr)) {
-//            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
-//            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
-//        } else if (playerLobby.isUserTaken(usernameStr)) {
-//            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
-//            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
-//        } else {
-//            return templateEngine.render(new ModelAndView(vm, "home.ftl"));
-//        }
-//    }
