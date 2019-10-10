@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * Author: Atharva Shivankar (ads8046@rit.edu)
  */
-public class RowIterator implements Iterator {
+public class RowIterator implements Iterator<Row> {
     private Row rows[];
     private int currentRow = 0;
 
@@ -20,7 +20,7 @@ public class RowIterator implements Iterator {
     }
 
     @Override
-    public Object next() {
+    public Row next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
