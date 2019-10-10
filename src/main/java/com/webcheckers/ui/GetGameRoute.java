@@ -21,6 +21,9 @@ public class GetGameRoute implements Route {
     static final String CURRENT_USER = "currentUser";
     static final String VIEW_MODE_ATTR = "viewMode";
     static final String ACTIVE_COLOR_ATTR = "activeColor";
+    static final String RED_PLAYER = "redPlayer";
+    static final String WHITE_PLAYER = "redPlayer";
+
 
     public enum VIEW_MODE {PLAY, SPECTATOR, REPLAY}
     public enum ACTIVE_COLOR {RED, WHITE}
@@ -55,9 +58,9 @@ public class GetGameRoute implements Route {
 
         //vm.put("modeOptionsAsJSON", "todo"); //todo sprint 2(?)
 
-        vm.put("redPlayer", "todo"); //todo
+        vm.put(RED_PLAYER, "todo"); //todo
 
-        vm.put("whitePlayer", "todo"); //todo
+        vm.put(WHITE_PLAYER, "todo"); //todo
 
         vm.put("activeColor", "todo"); //todo
 

@@ -34,10 +34,6 @@ public class PostChallengeRoute implements Route {
         vm.put("whitePlayer", opponentPlayer);
 
 
-
-
-
-
         return opponentName;
     }
 }

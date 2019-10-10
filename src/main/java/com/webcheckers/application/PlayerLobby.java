@@ -41,6 +41,7 @@ public class PlayerLobby {
             else if(p.getInGame()) { }
             else {
                 playersList.append("<li>");
+
 //                playersList.append("<a href=\"/game\">");
 //                playersList.append(p);
 //                playersList.append("</a>");
