@@ -5,7 +5,6 @@ import com.webcheckers.ui.PostSignInRoute;
 import spark.Session;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class PlayerLobby {

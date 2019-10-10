@@ -16,4 +16,9 @@ public class Player {
     public String getPlayerName() {
         return playerName;
     }
+
+    @Override
+    public String toString() {
+        return playerName;
+    }
 }
