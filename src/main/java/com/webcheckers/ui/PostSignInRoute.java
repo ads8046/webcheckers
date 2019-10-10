@@ -20,6 +20,7 @@ public class PostSignInRoute implements Route {
     private final TemplateEngine templateEngine;
     private static final String USER_PARA = "myUsername";
     private static final String INVALID_USERNAME = "invalidUsername";
+    public static final String PLAYER_KEY = "playerKey";
 
 
     public PostSignInRoute(PlayerLobby playerLobby, TemplateEngine templateEngine) {
@@ -71,7 +72,7 @@ public class PostSignInRoute implements Route {
             vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
             return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
         } else {
-            playerLobby.addPlayer(usernameStr);
+            playerLobby.addPlayer(usernameStr, session);
             response.redirect(WebServer.HOME_URL);
             return templateEngine.render(new ModelAndView(vm, "home.ftl"));
         }
