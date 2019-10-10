@@ -21,4 +21,16 @@ public class Player {
     public String toString() {
         return playerName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Player)) {
+            return false;
+        }
+        Player player = (Player)o;
+        return player.playerName.equals(this.playerName);
+    }
 }
