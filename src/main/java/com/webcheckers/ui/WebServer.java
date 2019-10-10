@@ -146,14 +146,14 @@ public class WebServer {
     //// Create separate Route classes to handle each route; this keeps your
     //// code clean; using small classes.
 
-    // Shows the Checkers game Home page.
+    //shows the Checkers game Home page.
     get(HOME_URL, new GetHomeRoute(templateEngine));
 
     //shows sign in page
     get(SIGNIN_URL, new GetLogInRoute(templateEngine));
 
     //shows player list page
-    post(HOME_URL, new PostSignInRoute(playerLobby, templateEngine));
+    post(SIGNIN_URL, new PostSignInRoute(playerLobby, templateEngine));
     LOG.config("WebServer is initialized.");
   }
 

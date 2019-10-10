@@ -14,7 +14,7 @@ import spark.TemplateEngine;
 import static spark.Spark.halt;
 
 
-public class PostSignInRoute implements Route{
+public class PostSignInRoute implements Route {
 
     private final PlayerLobby playerLobby;
     private final TemplateEngine templateEngine;
@@ -36,7 +36,7 @@ public class PostSignInRoute implements Route{
         return String.format("You entered %s; Please enter a valid username.", badUsername);
     }
 
-    private static String takenUsernameMessage( final String badUsername) {
+    private static String takenUsernameMessage(final String badUsername) {
         return "The username you have chosen is already taken";
     }
 
@@ -64,22 +64,26 @@ public class PostSignInRoute implements Route{
 
         vm.put("title", "Sign in page");
 
-        if ( playerLobby.isUserTaken(usernameStr) ) {
-            vm.put("ERROR", "Username invalid - choose another one");
-        }
+        playerLobby.addPlayer(usernameStr);
 
-        //if (!playerLobby.isUserTaken(usernameStr)){
-        //    vm.put("PLAYERS IN THE LOBBY: ", playerLobby.);
-        //}
+        response.redirect(WebServer.HOME_URL);
 
-        if (!isValid(usernameStr)) {
-            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
-            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
-        } else if (playerLobby.isUserTaken(usernameStr)) {
-            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
-            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
-        } else {
-            return templateEngine.render(new ModelAndView(vm, "home.ftl"));
-        }
+        return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
     }
 }
+
+
+//        if ( playerLobby.isUserTaken(usernameStr) ) {
+//            vm.put("ERROR", "Username invalid - choose another one");
+//        }
+
+//        if (!isValid(usernameStr)) {
+//            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
+//            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+//        } else if (playerLobby.isUserTaken(usernameStr)) {
+//            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
+//            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+//        } else {
+//            return templateEngine.render(new ModelAndView(vm, "home.ftl"));
+//        }
+//    }

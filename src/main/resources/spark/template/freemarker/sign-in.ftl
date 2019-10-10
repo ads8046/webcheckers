@@ -14,12 +14,11 @@
 
 
     <div class="body">
-        <form action="./" method="GET">
-            <p>
-                <#if invalidUsername??>
-                    ${invalidUsername}
-                </#if>
-            </p>
+
+        <form action="/signin" method="POST">
+            <#if invalidUsername??>
+                ${invalidUsername}
+            </#if>
 
             <br/>
             Username:
