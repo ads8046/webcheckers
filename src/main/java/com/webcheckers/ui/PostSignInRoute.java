@@ -14,7 +14,9 @@ import spark.Session;
 import spark.TemplateEngine;
 import static spark.Spark.halt;
 
-
+/**
+ * Authors: Atharva, Cam, Mason
+ */
 public class PostSignInRoute implements Route {
 
     private final PlayerLobby playerLobby;
