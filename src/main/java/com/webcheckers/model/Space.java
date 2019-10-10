@@ -9,9 +9,9 @@ public class Space {
         this.cellIdx = cellIdx;
     }
 
-    public int getCellIdx(int index) {
-        if (min <= index && index <= max){
-            return index;
+    public int getCellIdx() {
+        if (min <= cellIdx && cellIdx <= max){
+            return this.cellIdx;
         }
         else {
             try {
