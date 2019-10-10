@@ -1,10 +1,11 @@
 package com.webcheckers.ui;
 
 import com.webcheckers.application.PlayerLobby;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.TemplateEngine;
+import com.webcheckers.model.Player;
+import spark.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PostChallengeRoute implements Route {
 
@@ -17,12 +18,26 @@ public class PostChallengeRoute implements Route {
     }
 
     public Object handle(Request request, Response response) {
-        final String opponent = request.queryParams("challengedPlayer");
+        Session httpSession = request.session();
+        Player currentPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);
 
-        playerLobby.putInGame(opponent);
+        final String opponentName = request.queryParams("challengedPlayer");
+        final Player opponentPlayer = playerLobby.getPlayer(opponentName);
+
+        final Map<String, Object> vm = new HashMap<>();
+
+        playerLobby.putInGame(opponentName);
+
+        vm.put("currentUser", currentPlayer);
+        vm.put("viewMode", GetGameRoute.VIEW_MODE.PLAY);
+        vm.put("redPlayer", currentPlayer);
+        vm.put("whitePlayer", opponentPlayer);
 
 
 
-        return opponent;
+
+
+
+        return opponentName;
     }
 }

@@ -38,6 +38,7 @@ public class PlayerLobby {
         StringBuilder playersList = new StringBuilder();
         for (Player p: players) {
             if (p.equals(ignoredPlayer)) { }
+            else if(p.getInGame()) { }
             else {
                 playersList.append("<li>");
 //                playersList.append("<a href=\"/game\">");
@@ -68,6 +69,15 @@ public class PlayerLobby {
                 p.putInGame();
             }
         }
+    }
+
+    public Player getPlayer(String playerName) {
+        for (Player p: players) {
+            if (p.getName().equals(playerName)) {
+                return p;
+            }
+        }
+        return null;
     }
 
 }
