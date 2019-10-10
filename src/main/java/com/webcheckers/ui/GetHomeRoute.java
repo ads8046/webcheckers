@@ -68,11 +68,12 @@ public class GetHomeRoute implements Route {
     vm.put("message", WELCOME_MSG);
 
     if (!newPlayer) {
-      String currentPlayers = playerLobby.listPlayers();
-      vm.put(CURRENT_USER_KEY, httpSession.attribute(PostSignInRoute.PLAYER_KEY));
+      Player currentPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);
+      String currentPlayers = playerLobby.listPlayers(currentPlayer);
+      vm.put(CURRENT_USER_KEY, currentPlayer);
       vm.put(CURRENT_PLAYERS_KEY, currentPlayers);
     } else {
-      vm.put(CURRENT_PLAYERS_KEY, "11");
+      vm.put(CURRENT_PLAYERS_KEY, playerLobby.totalPlayers());
     }
 
     // render the View

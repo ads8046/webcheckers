@@ -34,13 +34,20 @@ public class PlayerLobby {
         httpSession.attribute(PostSignInRoute.PLAYER_KEY, newPlayer);
     }
 
-    public String listPlayers() {
+    public String listPlayers(Player ignoredPlayer) {
         StringBuilder playersList = new StringBuilder();
         for (Player p: players) {
-            playersList.append(p);
-            playersList.append('\n');
+            if (p.equals(ignoredPlayer)) { }
+            else {
+                playersList.append(p);
+                playersList.append('\n');
+            }
         }
         return playersList.toString();
+    }
+
+    public int totalPlayers() {
+        return players.size();
     }
 
 }
