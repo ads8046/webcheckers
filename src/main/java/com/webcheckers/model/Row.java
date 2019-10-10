@@ -18,7 +18,7 @@ public class Row implements Iterable {
         this.index = index;
         int i = 0;
         for (Space s: spaces) {
-            if (index == 4 || index == 5) {
+            if (index == 3 || index == 4) {
                 spaces[i] = new Space(index, i, true);
             } else if (index % 2 == 0) {
                 if (i % 2 == 0) {

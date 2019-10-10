@@ -66,8 +66,7 @@ public class GetGameRoute implements Route {
 
         vm.put("board", sessionsPlayer.getBoard());
 
-        //return templateEngine.render(new ModelAndView(vm , "game.ftl"));
-        return true;
+        return templateEngine.render(new ModelAndView(vm , "game.ftl"));
     }
 
 }

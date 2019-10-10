@@ -23,7 +23,7 @@ public class BoardView {
     }
 
     public Iterator<Row> iterator() {
-        return null;
+        return new RowIterator(rows);
     }
 
 }

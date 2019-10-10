@@ -15,11 +15,18 @@ public class Space {
     private boolean isEmpty;
     private Piece currentPiece;
 
-    public Space ( int cellIdx, int rowIndex, boolean isEmpty) {
+    public Space (int cellIdx, int rowIndex, boolean isEmpty) {
         this.cellIdx = cellIdx;
-        this.isEmpty = true;
-        this.currentPiece = null;
         this.rowIndex = rowIndex;
+        this.isEmpty = isEmpty;
+        if (isEmpty) {
+            this.currentPiece = null;
+        } else if (rowIndex < 3) {
+            this.currentPiece = new Piece(Piece.PieceColors.RED);
+        } else {
+            this.currentPiece = new Piece(Piece.PieceColors.WHITE);
+        }
+
     }
 
     /**
