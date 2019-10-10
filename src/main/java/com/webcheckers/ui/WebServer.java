@@ -1,6 +1,7 @@
 package com.webcheckers.ui;
 
 import static spark.Spark.*;
+import static spark.route.HttpMethod.post;
 
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -60,6 +61,11 @@ public class WebServer {
    * The URL pattern to request the Sign in page.
    */
   public static final String SIGNIN_URL = "/signin";
+
+  /**
+   * the URL pattern to request the Game page
+   */
+  public static final String GAME_URL = "/game";
 
   //
   // Attributes
@@ -152,8 +158,15 @@ public class WebServer {
     //shows sign in page
     get(SIGNIN_URL, new GetLogInRoute(templateEngine));
 
+    //shows game page
+    get(GAME_URL, new GetGameRoute(templateEngine));
+
     //shows player list page
     post(SIGNIN_URL, new PostSignInRoute(playerLobby, templateEngine));
+
+    //challenges a player to a game
+    post(GAME_URL, new PostChallengeRoute(templateEngine));
+
     LOG.config("WebServer is initialized.");
   }
 

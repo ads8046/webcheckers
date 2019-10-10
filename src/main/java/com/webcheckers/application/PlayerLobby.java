@@ -40,10 +40,14 @@ public class PlayerLobby {
             if (p.equals(ignoredPlayer)) { }
             else {
                 playersList.append("<li>");
-                playersList.append("<a href=\"./game\">");
-                playersList.append(p);
-                playersList.append("</a>");
-                playersList.append("<br>");
+//                playersList.append("<a href=\"/game\">");
+//                playersList.append(p);
+//                playersList.append("</a>");
+//                playersList.append("<br>");
+
+                  playersList.append("<input type=\"submit\" value=\"");
+                  playersList.append(p);
+                  playersList.append("\" />");
                 playersList.append("</li>");
             }
         }

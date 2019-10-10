@@ -25,7 +25,9 @@
     </h2>
     <font size="+1">
       <ul>
-        ${currentPlayers}
+        <form action="/game" method="POST">
+          ${currentPlayers}
+        </form>
       </ul>
     </font>
 
