@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 public final class Message {
   private static final Logger LOG = Logger.getLogger(Message.class.getName());
 
+  public static final String MESSAGE = "message";
+
   //
   // Static Factory methods
   //

@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.webcheckers.application.PlayerLobby;
+import com.webcheckers.util.Message;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -66,10 +67,10 @@ public class PostSignInRoute implements Route {
         vm.put("title", "Sign in page");
 
         if (!nameIsValid) {
-            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
+            vm.put(Message.MESSAGE, Message.error(invalidUsernameMessage(usernameStr)));
             return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
         } else if (playerLobby.isUserTaken(usernameStr)) {
-            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
+            vm.put(Message.MESSAGE, Message.error(takenUsernameMessage(usernameStr)));
             return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
         } else {
             playerLobby.addPlayer(usernameStr, session);
