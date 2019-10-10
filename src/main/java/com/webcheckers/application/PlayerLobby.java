@@ -6,6 +6,7 @@ import spark.Session;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.StringBuilder;
 
 public class PlayerLobby {
 
@@ -32,4 +33,14 @@ public class PlayerLobby {
         players.add(newPlayer);
         httpSession.attribute(PostSignInRoute.PLAYER_KEY, newPlayer);
     }
+
+    public String listPlayers() {
+        StringBuilder playersList = new StringBuilder();
+        for (Player p: players) {
+            playersList.append(p);
+            playersList.append('\n');
+        }
+        return playersList.toString();
+    }
+
 }
