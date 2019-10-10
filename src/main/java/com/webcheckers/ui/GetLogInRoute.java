@@ -26,6 +26,7 @@ public class GetLogInRoute implements Route {
         LOG.config("GetLogInRoute is initialized");
     }
 
+
     /**
      * render the webcheckers sign-in page
      * @param request the HTTP request

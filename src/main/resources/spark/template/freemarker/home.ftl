@@ -20,6 +20,15 @@
     <!-- Provide a message to the user, if supplied. -->
     <#include "message.ftl" />
 
+    <h2>
+      Currently Signed In Players:
+    </h2>
+    <font size="+1">
+      <ul>
+        ${currentPlayers}
+      </ul>
+    </font>
+
     <!-- TODO: future content on the Home:
             to start games,
             spectating active games,

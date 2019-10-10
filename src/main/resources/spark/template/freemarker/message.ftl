@@ -3,5 +3,6 @@
 <#else>
   <div id="message" class="INFO" style="display:none">
     <!-- keep here for client-side messages -->
+
   </div>
 </#if>

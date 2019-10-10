@@ -15,8 +15,11 @@
 
     <div class="body">
 
+        <form action="/signin" method="POST">
+            <#if invalidUsername??>
+                ${invalidUsername}
+            </#if>
 
-        <form action="./" method="GET">
             <br/>
             Username:
             <input name="myUsername" />

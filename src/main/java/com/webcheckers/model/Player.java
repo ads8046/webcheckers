@@ -13,7 +13,24 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public String getPlayerName() {
+    public String getName() {
         return playerName;
+    }
+
+    @Override
+    public String toString() {
+        return playerName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Player)) {
+            return false;
+        }
+        Player player = (Player)o;
+        return player.playerName.equals(this.playerName);
     }
 }
