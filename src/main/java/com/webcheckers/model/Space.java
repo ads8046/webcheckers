@@ -1,5 +1,9 @@
 package com.webcheckers.model;
 
+
+/**
+ * Author: Atharva Shivankar (ads8046@rit.edu)
+ */
 public class Space {
 
     private int cellIdx;
