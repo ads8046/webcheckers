@@ -43,11 +43,15 @@ public class PostSignInRoute implements Route {
     }
 
     private boolean isValid(String s) {
-        if (s.length() > 1) {
-            return true;
-        } else if (s.length() == 0) {
+        if (s.length() == 0) {
             return false;
-        } else return s.matches(("^.*[^a-zA-Z0-9 ].*$"));
+        }
+        else if (s.length() > 1) {
+            return true;
+        }
+        else {
+            return s.matches("[A-Za-z0-9]+");
+        }
     }
 
     @Override
