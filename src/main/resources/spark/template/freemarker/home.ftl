@@ -25,7 +25,11 @@
     </h2>
     <font size="+1">
       <ul>
-        ${currentPlayers}
+        <#if curentPlayers??>
+          ${currentPlayers}
+        <#else>
+          No other current players :(
+        </#if>
       </ul>
     </font>
 
