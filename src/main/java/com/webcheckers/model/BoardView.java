@@ -14,6 +14,7 @@ public class BoardView implements Iterator {
     private int currentRow = 0;
 
     public BoardView(){
+
     }
 
     public Iterator<Row> iterator() {
