@@ -7,6 +7,14 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
+<script>
+
+  function loadOpponent() {
+    window.location = "game.ftl";
+  }
+
+</script>
+
 <body>
 <div class="page">
 

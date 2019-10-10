@@ -69,6 +69,11 @@ public class GetHomeRoute implements Route {
 
     if (!newPlayer) {
       Player currentPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);
+
+      if (currentPlayer.getInGame()) {
+        response.redirect("/game");
+      }
+
       String currentPlayers = playerLobby.listPlayers(currentPlayer);
       vm.put(CURRENT_USER_KEY, currentPlayer);
       vm.put(CURRENT_PLAYERS_KEY, currentPlayers);

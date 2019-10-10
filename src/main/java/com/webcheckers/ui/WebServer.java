@@ -165,7 +165,7 @@ public class WebServer {
     post(SIGNIN_URL, new PostSignInRoute(playerLobby, templateEngine));
 
     //challenges a player to a game
-    post(GAME_URL, new PostChallengeRoute(templateEngine));
+    post(GAME_URL, new PostChallengeRoute(playerLobby, templateEngine));
 
     LOG.config("WebServer is initialized.");
   }

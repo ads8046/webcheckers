@@ -9,12 +9,23 @@ public class Player {
 
     private String playerName;
 
+    private boolean inGame;
+
     public Player(String playerName) {
         this.playerName = playerName;
+        this.inGame = false;
     }
 
     public String getName() {
         return playerName;
+    }
+
+    public boolean getInGame() {
+        return inGame;
+    }
+
+    public void putInGame() {
+        this.inGame = true;
     }
 
     @Override

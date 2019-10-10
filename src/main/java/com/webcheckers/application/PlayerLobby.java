@@ -45,7 +45,11 @@ public class PlayerLobby {
 //                playersList.append("</a>");
 //                playersList.append("<br>");
 
-                  playersList.append("<input type=\"submit\" value=\"");
+//                playersList.append("<button onclick=\"loadOpponent()\">");
+//                playersList.append(p);
+//                playersList.append("</button>");
+
+                  playersList.append("<input name=\"challengedPlayer\" type=\"submit\" value=\"");
                   playersList.append(p);
                   playersList.append("\" />");
                 playersList.append("</li>");
@@ -56,6 +60,14 @@ public class PlayerLobby {
 
     public int totalPlayers() {
         return players.size();
+    }
+
+    public void putInGame(String playerName) {
+        for (Player p: players) {
+            if (p.getName().equals(playerName)) {
+                p.putInGame();
+            }
+        }
     }
 
 }

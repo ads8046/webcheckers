@@ -42,7 +42,7 @@ public class GetGameRoute implements Route {
 
 
 
-    public String handle(Request request, Response response) {
+    public Object handle(Request request, Response response) {
         // retrieve the game object and start one if no game is in progress
         final Session httpSession = request.session();
         final Player sessionsPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);
@@ -63,7 +63,8 @@ public class GetGameRoute implements Route {
 
         vm.put("board", "todo"); //todo
 
-        return templateEngine.render(new ModelAndView(vm , "game.ftl"));
+        //return templateEngine.render(new ModelAndView(vm , "game.ftl"));
+        return true;
     }
 
 }
