@@ -15,7 +15,7 @@ public class Space {
     private boolean isEmpty;
     private Piece currentPiece;
 
-    public Space ( int cellIdx, int rowIndex, boolean isEmpty, Piece currentPiece  ) {
+    public Space ( int cellIdx, int rowIndex, boolean isEmpty) {
         this.cellIdx = cellIdx;
         this.isEmpty = true;
         this.currentPiece = null;
