@@ -62,7 +62,6 @@ public class WebServer {
   public static final String SIGNIN_URL = "/signin";
 
 
-    public static final String PLAYER_LIST_URL = "/playerlist";
   //
   // Attributes
   //
@@ -160,7 +159,7 @@ public class WebServer {
     get(SIGNIN_URL, new GetLogInRoute(templateEngine));
 
     //shows player list page
-    post(PLAYER_LIST_URL, new PostSignInRoute(playerLobby, templateEngine));
+    post(HOME_URL, new PostSignInRoute(playerLobby, templateEngine));
     LOG.config("WebServer is initialized.");
   }
 
