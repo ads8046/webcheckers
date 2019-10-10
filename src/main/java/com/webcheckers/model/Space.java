@@ -1,6 +1,7 @@
 package com.webcheckers.model;
 
 public class Space {
+
     private int cellIdx;
     private int rowIndex;
 
@@ -10,20 +11,28 @@ public class Space {
     private boolean isEmpty;
     private Piece currentPiece;
 
-
-
     public Space ( int cellIdx, int rowIndex, boolean isEmpty, Piece currentPiece  ) {
         this.cellIdx = cellIdx;
         this.isEmpty = true;
         this.currentPiece = null;
         this.rowIndex = rowIndex;
-
     }
 
+    /**
+     * Checks if the space is open for a
+     * valid move
+     *
+     * @return bool
+     */
     public boolean isValid(){
         return ((this.getCellIdx() % 2) == 0) && ((this.rowIndex % 2) == 0);
     }
 
+    /**
+     * Returns the cell index of the current space
+     *
+     * @return int
+     */
     public int getCellIdx() {
         if (min <= cellIdx && cellIdx <= max){
             return this.cellIdx;
@@ -38,14 +47,29 @@ public class Space {
         return 0;
     }
 
+    /**
+     * Setter - occupies a space
+     */
     public void setSpaceOccupied(){
         this.isEmpty = false;
     }
 
+    /**
+     * Checks if a space is empty
+     *
+     * @return bool
+     */
     public boolean isEmpty() {
         return this.isEmpty;
     }
 
+
+    /**
+     * Returns the piece object occupying the current
+     * space or null if empty
+     *
+     * @return current piece
+     */
     public Piece getCurrentPiece(){
         if (isEmpty) {
             return null;
