@@ -19,7 +19,7 @@ public class PlayerLobby {
     public boolean isUserTaken(String username){
         boolean result =  false;
         for (Player p: players) {
-            if (p.getPlayerName().equals(username)) {
+            if (p.getName().equals(username)) {
                 result = true;
                 break;
             }

@@ -62,7 +62,7 @@ public class GetHomeRoute implements Route {
     vm.put("message", WELCOME_MSG);
 
     if ( httpSession.attribute(PostSignInRoute.PLAYER_KEY) != null ) {
-      vm.put(CURRENT_USER_KEY, httpSession.attribute(PostSignInRoute.PLAYER_KEY).toString());
+      vm.put(CURRENT_USER_KEY, httpSession.attribute(PostSignInRoute.PLAYER_KEY));
     }
 
     // render the View
