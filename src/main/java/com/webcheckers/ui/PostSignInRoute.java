@@ -19,6 +19,7 @@ public class PostSignInRoute implements Route{
     private final PlayerLobby playerLobby;
     private final TemplateEngine templateEngine;
     private static final String USER_PARA = "myUsername";
+    private static final String INVALID_USERNAME = "invalidUsername";
 
 
     public PostSignInRoute(PlayerLobby playerLobby, TemplateEngine templateEngine) {
@@ -31,33 +32,54 @@ public class PostSignInRoute implements Route{
 
     }
 
+    private static String invalidUsernameMessage(final String badUsername) {
+        return String.format("You entered %s; Please enter a valid username.", badUsername);
+    }
+
+    private static String takenUsernameMessage( final String badUsername) {
+        return "The username you have chosen is already taken";
+    }
+
+    private boolean isValid(String s) {
+        if (s.length() > 1) {
+            return true;
+        } else if (s.length() == 0) {
+            return false;
+        } else return s.matches(("^.*[^a-zA-Z0-9 ].*$"));
+    }
+
     @Override
     public String handle(Request request, Response response) throws Exception {
         // start building the View-Model
         final Map<String, Object> vm = new HashMap<>();
 
-
-
-
         // retrieve the game object
         final Session session = request.session();
 
-
-        //retrieve username validation request
+        // retrieve username validation request
         // retrieve request parameter
         final String usernameStr = request.queryParams(USER_PARA);
 
-        vm.put("title", "Sign in page");
+        final boolean nameIsValid = isValid(usernameStr);
 
+        vm.put("title", "Sign in page");
 
         if ( playerLobby.isUserTaken(usernameStr) ) {
             vm.put("ERROR", "Username invalid - choose another one");
         }
 
-        if (!playerLobby.isUserTaken(usernameStr)){
-            vm.put("PLAYERS IN THE LOBBY: ", playerLobby.);
-        }
+        //if (!playerLobby.isUserTaken(usernameStr)){
+        //    vm.put("PLAYERS IN THE LOBBY: ", playerLobby.);
+        //}
 
-        return templateEngine.render(new ModelAndView(vm, "home.ftl"));
+        if (!isValid(usernameStr)) {
+            vm.put(INVALID_USERNAME, invalidUsernameMessage(usernameStr));
+            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+        } else if (playerLobby.isUserTaken(usernameStr)) {
+            vm.put(INVALID_USERNAME, takenUsernameMessage(usernameStr));
+            return templateEngine.render(new ModelAndView(vm, "sign-in.ftl"));
+        } else {
+            return templateEngine.render(new ModelAndView(vm, "home.ftl"));
+        }
     }
 }

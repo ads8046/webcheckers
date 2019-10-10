@@ -14,9 +14,13 @@
 
 
     <div class="body">
-
-
         <form action="./" method="GET">
+            <p>
+                <#if invalidUsername??>
+                    ${invalidUsername}
+                </#if>
+            </p>
+
             <br/>
             Username:
             <input name="myUsername" />
