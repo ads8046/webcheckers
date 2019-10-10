@@ -22,7 +22,7 @@ public class GetGameRoute implements Route {
     static final String VIEW_MODE_ATTR = "viewMode";
     static final String ACTIVE_COLOR_ATTR = "activeColor";
     static final String RED_PLAYER = "redPlayer";
-    static final String WHITE_PLAYER = "redPlayer";
+    static final String WHITE_PLAYER = "whitePlayer";
 
 
     public enum VIEW_MODE {PLAY, SPECTATOR, REPLAY}
@@ -51,6 +51,8 @@ public class GetGameRoute implements Route {
         final Player sessionsPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);
 
         final Map<String, Object> vm = new HashMap<>();
+
+        vm.put("title", "Webcheckers");
 
         vm.put("currentUser", sessionsPlayer);
 
