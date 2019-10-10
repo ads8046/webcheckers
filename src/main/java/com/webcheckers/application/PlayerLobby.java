@@ -40,7 +40,7 @@ public class PlayerLobby {
             if (p.equals(ignoredPlayer)) { }
             else {
                 playersList.append("<li>");
-                playersList.append("<a href=\"/\">");
+                playersList.append("<a href=\"./game\">");
                 playersList.append(p);
                 playersList.append("</a>");
                 playersList.append("<br>");
