@@ -28,10 +28,12 @@ public class PostChallengeRoute implements Route {
 
         final Map<String, Object> vm = new HashMap<>();
 
-        playerLobby.putInGame(opponentName);
+        playerLobby.putInGame(opponentName, currentPlayer, board);
+        currentPlayer.putInGame(playerLobby.getPlayer(opponentName), board);
 
         vm.put("title", "Webcheckers game");
 
+        //populate vm
         vm.put("currentUser", currentPlayer);
         vm.put("viewMode", GetGameRoute.VIEW_MODE.PLAY);
         vm.put("redPlayer", currentPlayer);

@@ -8,8 +8,9 @@ package com.webcheckers.model;
 public class Player {
 
     private String playerName;
-
+    private Player opponent;
     private boolean inGame;
+    private BoardView myBoard;
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -24,8 +25,18 @@ public class Player {
         return inGame;
     }
 
-    public void putInGame() {
+    public void putInGame(Player challenger, BoardView myBoard) {
+        this.opponent = challenger;
         this.inGame = true;
+        this.myBoard = myBoard;
+    }
+
+    public Player getOpponent() {
+        return opponent;
+    }
+
+    public BoardView getBoard() {
+        return myBoard;
     }
 
     @Override

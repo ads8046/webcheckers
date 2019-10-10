@@ -1,5 +1,6 @@
 package com.webcheckers.application;
 
+import com.webcheckers.model.BoardView;
 import com.webcheckers.model.Player;
 import com.webcheckers.ui.PostSignInRoute;
 import spark.Session;
@@ -64,10 +65,10 @@ public class PlayerLobby {
         return players.size();
     }
 
-    public void putInGame(String playerName) {
+    public void putInGame(String playerName, Player challenger, BoardView board) {
         for (Player p: players) {
             if (p.getName().equals(playerName)) {
-                p.putInGame();
+                p.putInGame(challenger, board);
             }
         }
     }

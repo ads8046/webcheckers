@@ -58,13 +58,13 @@ public class GetGameRoute implements Route {
 
         //vm.put("modeOptionsAsJSON", "todo"); //todo sprint 2(?)
 
-        vm.put(RED_PLAYER, "todo"); //todo
+        vm.put(RED_PLAYER, sessionsPlayer.getOpponent());
 
-        vm.put(WHITE_PLAYER, "todo"); //todo
+        vm.put(WHITE_PLAYER, sessionsPlayer);
 
-        vm.put("activeColor", "todo"); //todo
+        vm.put("activeColor", ACTIVE_COLOR.RED);
 
-        vm.put("board", "todo"); //todo
+        vm.put("board", sessionsPlayer.getBoard());
 
         //return templateEngine.render(new ModelAndView(vm , "game.ftl"));
         return true;
