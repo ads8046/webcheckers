@@ -39,8 +39,12 @@ public class PlayerLobby {
         for (Player p: players) {
             if (p.equals(ignoredPlayer)) { }
             else {
+                playersList.append("<li>");
+                playersList.append("<a href=\"/\">");
                 playersList.append(p);
-                playersList.append('\n');
+                playersList.append("</a>");
+                playersList.append("<br>");
+                playersList.append("</li>");
             }
         }
         return playersList.toString();
