@@ -13,7 +13,7 @@ public class BoardView implements Iterator {
     private Row rows[];
     private int currentRow = 0;
 
-    public Iterator<Row> rowIterator() {
+    public Iterator<Row> iterator() {
         return null;
     }
 
