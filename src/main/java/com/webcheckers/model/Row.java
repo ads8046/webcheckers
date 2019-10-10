@@ -1,20 +1,23 @@
 package com.webcheckers.model;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  *
  * @author: Mason Zhong
  */
 
-public class Row {
+public class Row implements Iterator {
 
     private int index;
-    private Space space[];
+    private int currentSpace = 0;
+    private Space spaces[];
 
-    public Row(int index, Space space[]) {
+    public Row(int index, Space spaces[]) {
         this.index = index;
-        this.space = space;
+        this.spaces = spaces;
     }
 
 
@@ -22,8 +25,21 @@ public class Row {
         return this.index;
     }
 
-    public Iterator<Space> iterator() {
+    public Iterator<Space> spaceIterator() {
         return null;
 
+    }
+
+    @Override
+    public boolean hasNext() {
+        return currentSpace < spaces.length;
+    }
+
+    @Override
+    public Object next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        return spaces[currentSpace++];
     }
 }
