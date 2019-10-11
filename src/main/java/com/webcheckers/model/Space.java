@@ -36,7 +36,7 @@ public class Space {
      * @return bool
      */
     public boolean isValid(){
-        return ((this.getCellIdx() % 2) == 0) && ((this.rowIndex % 2) == 0);
+        return ((this.getCellIdx() % 2) == 0) && ((this.rowIndex % 2) == 0) && isEmpty();
     }
 
     /**
