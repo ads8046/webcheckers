@@ -8,16 +8,31 @@ import spark.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * UI Controller class to redirect the challenged player to the game page.
+ */
+
 public class PostChallengeRoute implements Route {
 
     private TemplateEngine templateEngine;
     private final PlayerLobby playerLobby;
 
+    /**
+     * Creates the route for redirecting other player to the game view.
+     * @param playerLobby player lobby for the list of players
+     * @param templateEngine The html template rendering engine
+     */
     public PostChallengeRoute(PlayerLobby playerLobby, TemplateEngine templateEngine){
         this.templateEngine = templateEngine;
         this.playerLobby = playerLobby;
     }
 
+    /**
+     * Renders the game view page
+     * @param request the HTTP request
+     * @param response the HTTP response
+     * @return the rendered HTML for the game page
+     */
     public Object handle(Request request, Response response) {
         Session httpSession = request.session();
         Player currentPlayer = httpSession.attribute(PostSignInRoute.PLAYER_KEY);

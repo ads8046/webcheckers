@@ -15,7 +15,7 @@ import spark.TemplateEngine;
 import static spark.Spark.halt;
 
 /**
- * Authors: Atharva, Cam, Mason
+ * UI Controller class to redirect the user to the home page or sign-in page based on the validity of their username
  */
 public class PostSignInRoute implements Route {
 
@@ -25,7 +25,11 @@ public class PostSignInRoute implements Route {
     private static final String INVALID_USERNAME = "invalidUsername";
     public static final String PLAYER_KEY = "playerKey";
 
-
+    /**
+     * Creates route for redirecting the user from the sign-in page
+     * @param playerLobby player lobby for the list of players
+     * @param templateEngine The html template rendering engine
+     */
     public PostSignInRoute(PlayerLobby playerLobby, TemplateEngine templateEngine) {
         // validation
         Objects.requireNonNull(playerLobby, "gameCenter must not be null");
@@ -33,17 +37,31 @@ public class PostSignInRoute implements Route {
         //
         this.playerLobby = playerLobby;
         this.templateEngine = templateEngine;
-
     }
 
+    /**
+     * Returns message to display that username input was invalid
+     * @param badUsername invalid username from player
+     * @return message to display that username was invalid
+     */
     private static String invalidUsernameMessage(final String badUsername) {
         return String.format("You entered %s; Please enter a valid username.", badUsername);
     }
 
+    /**
+     * Returns message to display that the username input is taken already
+     * @param badUsername invalid username from player
+     * @return message to display that the username is taken already
+     */
     private static String takenUsernameMessage(final String badUsername) {
         return "The username you have chosen is already taken";
     }
 
+    /**
+     * Checks if username is a valid username
+     * @param s username input
+     * @return true if its valid, false otherwise
+     */
     private boolean isValid(String s) {
         if (s.length() == 0) {
             return false;
@@ -56,6 +74,13 @@ public class PostSignInRoute implements Route {
         }
     }
 
+    /**
+     *
+     * @param request the HTTP request
+     * @param response the HTTP response
+     * @return rendered HTML for displaying if username is invalid or redirecting player to home page
+     * @throws Exception
+     */
     @Override
     public String handle(Request request, Response response) throws Exception {
         // start building the View-Model
