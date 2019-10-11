@@ -21,7 +21,7 @@ public class Space {
         this.isEmpty = isEmpty;
         if (isEmpty) {
             this.currentPiece = null;
-        } else if (rowIndex < 3) {
+        } else if (cellIdx < 3) {
             this.currentPiece = new Piece(Piece.PieceColors.RED);
         } else {
             this.currentPiece = new Piece(Piece.PieceColors.WHITE);
@@ -81,7 +81,7 @@ public class Space {
      *
      * @return current piece
      */
-    public Piece getCurrentPiece(){
+    public Piece getPiece(){
         if (isEmpty) {
             return null;
         }

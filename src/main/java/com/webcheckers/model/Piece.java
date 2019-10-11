@@ -19,11 +19,11 @@ public class Piece {
         this.pieceType = PieceTypes.SINGLE;
     }
 
-    public PieceTypes getPieceType() {
+    public PieceTypes getType() {
         return this.pieceType;
     }
 
-    public PieceColors getPieceColor() {
+    public PieceColors getColor() {
         return this.pieceColor;
     }
 
