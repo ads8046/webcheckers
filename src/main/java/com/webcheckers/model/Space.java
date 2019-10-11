@@ -45,17 +45,18 @@ public class Space {
      * @return int
      */
     public int getCellIdx() {
-        if (min <= cellIdx && cellIdx <= max){
-            return this.cellIdx;
-        }
-        else {
-            try {
-                throw new Exception(" ERROR: Space index must be between 0 to 7");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return 0;
+        return this.cellIdx;
+//        if (min <= cellIdx && cellIdx <= max){
+//            return this.cellIdx;
+//        }
+//        else {
+//            try {
+//                throw new Exception(" ERROR: Space index must be between 0 to 7");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return 0;
     }
 
     /**
@@ -82,10 +83,10 @@ public class Space {
      * @return current piece
      */
     public Piece getPiece(){
-        if (isEmpty) {
-            return null;
-        }
-        return currentPiece;
+//        if (isEmpty) {
+//            return null;
+//        }
+      return currentPiece;
     }
 
 }
