@@ -1,8 +1,7 @@
 package com.webcheckers.model;
 
-
 /**
- * Author: Atharva Shivankar (ads8046@rit.edu)
+ * Class for a space in the row
  */
 public class Space {
 
@@ -15,6 +14,12 @@ public class Space {
     private boolean isEmpty;
     private Piece currentPiece;
 
+    /**
+     * Creates an empty space
+     * @param cellIdx cell index
+     * @param rowIndex row index in the board
+     * @param isEmpty space occupancy by a piece
+     */
     public Space (int cellIdx, int rowIndex, boolean isEmpty) {
         this.cellIdx = cellIdx;
         this.rowIndex = rowIndex;
@@ -26,7 +31,6 @@ public class Space {
         } else {
             this.currentPiece = new Piece(Piece.PieceColors.WHITE);
         }
-
     }
 
     /**
@@ -41,8 +45,7 @@ public class Space {
 
     /**
      * Returns the cell index of the current space
-     *
-     * @return int
+     * @return cell index
      */
     public int getCellIdx() {
         return this.cellIdx;
@@ -60,16 +63,15 @@ public class Space {
     }
 
     /**
-     * Setter - occupies a space
+     * Sets the occupancy of the space
      */
-    public void setSpaceOccupied(){
+    public void setSpaceOccupied() {
         this.isEmpty = false;
     }
 
     /**
      * Checks if a space is empty
-     *
-     * @return bool
+     * @return true if space is empty, false otherwise
      */
     public boolean isEmpty() {
         return this.isEmpty;
@@ -79,14 +81,13 @@ public class Space {
     /**
      * Returns the piece object occupying the current
      * space or null if empty
-     *
      * @return current piece
      */
-    public Piece getPiece(){
+    public Piece getPiece() {
 //        if (isEmpty) {
 //            return null;
 //        }
-      return currentPiece;
+        return currentPiece;
     }
 
 }

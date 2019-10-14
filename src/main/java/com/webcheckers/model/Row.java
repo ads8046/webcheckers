@@ -3,16 +3,19 @@ package com.webcheckers.model;
 import java.util.Iterator;
 
 /**
+ * Class for a Row in the board
  *
- * @author: Mason Zhong
  */
 
 public class Row implements Iterable {
 
     private int index;
-    private int currentSpace = 0;
     private Space spaces[];
 
+    /**
+     * Creates a row and populates it with spaces
+     * @param index
+     */
     public Row(int index) {
         spaces = new Space[8];
         this.index = index;
@@ -37,11 +40,18 @@ public class Row implements Iterable {
         }
     }
 
-
+    /**
+     * Gets the index of the row
+     * @return index of the row
+     */
     public int getIndex() {
         return this.index;
     }
 
+    /**
+     * Creates and returns an iterator that iterates through the spaces in a row
+     * @return an iterator that iterates through the spaces in a row
+     */
     public Iterator<Space> iterator() {
         return new SpaceIterator(this.spaces);
     }

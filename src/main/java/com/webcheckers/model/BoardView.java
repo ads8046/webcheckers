@@ -1,21 +1,17 @@
 package com.webcheckers.model;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
- *
- *
- * @author: Mason Zhong
+ * Class for checkers board
  */
 
 public class BoardView {
 
     private Row[] rows;
-    private int currentRow = 0;
 
     /**
-     *
+     * Creates checkers board and populates it with rows and spaces
      */
     public BoardView(){
         rows = new Row[8];
@@ -27,8 +23,8 @@ public class BoardView {
     }
 
     /**
-     *
-     * @return
+     * Creates and returns an iterator that iterates through the rows in the board
+     * @return an iterator that iterates through the rows
      */
     public Iterator<Row> iterator() {
         return new RowIterator(rows);
