@@ -75,7 +75,7 @@ public class PostSignInRoute implements Route {
     }
 
     /**
-     *
+     * Renders the view after player attempts to sign in
      * @param request the HTTP request
      * @param response the HTTP response
      * @return rendered HTML for displaying if username is invalid or redirecting player to home page
