@@ -46,9 +46,13 @@ public class PlayerLobby {
      * @param httpSession Session player will be redirected to after signing in
      */
     public void addPlayer(String playerName, Session httpSession) {
+        httpSession.attribute(PostSignInRoute.PLAYER_KEY, addPlayerList(playerName));
+    }
+
+    public Player addPlayerList(String playerName) {
         Player newPlayer = new Player(playerName);
         players.add(newPlayer);
-        httpSession.attribute(PostSignInRoute.PLAYER_KEY, newPlayer);
+        return newPlayer;
     }
 
     /**
@@ -100,6 +104,7 @@ public class PlayerLobby {
         for (Player p: players) {
             if (p.getName().equals(playerName)) {
                 p.putInGame(challenger, board);
+                challenger.putInGame(p, board);
             }
         }
     }
