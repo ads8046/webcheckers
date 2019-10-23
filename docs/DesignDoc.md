@@ -11,26 +11,37 @@ geometry: margin=1in
 ## Team Information
 * Team name: TEAMNAME
 * Team members
-  * MEMBER1
-  * MEMBER2
-  * MEMBER3
-  * MEMBER4
+  * CAMERON PERDUE
+  * MASON ZHONG
+  * ATHARVA SHIVANKAR
 
 ## Executive Summary
 
-This is a summary of the project.
+Webcheckers is a web application written in Java, HTML/FTL, CSS and JS.
+The application is divided into three tiers - Application, Model, UI.
+Players are greeted with a homepage that directs them to a sign in page.
+Users must choose a unique username to sign in and enter what is known as
+the player lobby. The player lobby is a list of all the players logged into
+the system currently. The signed in player can either challenge another 
+player in the lobby or sign out at this point. After the player challenges 
+another player, both are redirected to the game page with the checkers UI.
+The game is played according to the American rules of checker. After the 
+game ends, users are redirected back to the player lobby. Player can also
+forfeit a game during the gameplay. Project is developed with high cohesion
+in mind.
 
 ### Purpose
-> _Provide a very brief statement about the project and the most
-> important user group and user goals._
+>  _Our web application simulates the game of American webcheckers 
+   for our userbase that is above 12 years of age and the major 
+   stakeholders are the product owners and the developers._
 
 ### Glossary and Acronyms
 > _Provide a table of terms and acronyms._
 
-| Term | Definition |
-|------|------------|
-| VO | Value Object |
-
+| Term |  Definition  |
+|------|--------------|
+|  VO  | Value Object |
+| 
 
 ## Requirements
 
