@@ -7,6 +7,14 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
+<script>
+
+  function loadOpponent() {
+    window.location = "game.ftl";
+  }
+
+</script>
+
 <body>
 <div class="page">
 
@@ -19,6 +27,17 @@
 
     <!-- Provide a message to the user, if supplied. -->
     <#include "message.ftl" />
+
+    <h2>
+      Currently Signed In Players:
+    </h2>
+    <font size="+1">
+      <ul>
+        <form action="/game" method="POST">
+          ${currentPlayers}
+        </form>
+      </ul>
+    </font>
 
     <!-- TODO: future content on the Home:
             to start games,

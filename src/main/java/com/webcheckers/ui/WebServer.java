@@ -1,12 +1,15 @@
 package com.webcheckers.ui;
 
 import static spark.Spark.*;
+import static spark.route.HttpMethod.post;
 
 import java.util.Objects;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 
+import com.webcheckers.application.PlayerLobby;
+import com.webcheckers.model.Player;
 import spark.TemplateEngine;
 
 
@@ -54,12 +57,23 @@ public class WebServer {
    */
   public static final String HOME_URL = "/";
 
+  /**
+   * The URL pattern to request the Sign in page.
+   */
+  public static final String SIGNIN_URL = "/signin";
+
+  /**
+   * the URL pattern to request the Game page
+   */
+  public static final String GAME_URL = "/game";
+
   //
   // Attributes
   //
 
   private final TemplateEngine templateEngine;
   private final Gson gson;
+  private final PlayerLobby playerLobby;
 
   //
   // Constructor
@@ -76,11 +90,13 @@ public class WebServer {
    * @throws NullPointerException
    *    If any of the parameters are {@code null}.
    */
-  public WebServer(final TemplateEngine templateEngine, final Gson gson) {
+  public WebServer(final PlayerLobby playerLobby, final TemplateEngine templateEngine, final Gson gson) {
     // validation
+    Objects.requireNonNull(playerLobby, "playerLobby must not be null");
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     Objects.requireNonNull(gson, "gson must not be null");
     //
+    this.playerLobby = playerLobby;
     this.templateEngine = templateEngine;
     this.gson = gson;
   }
@@ -136,10 +152,21 @@ public class WebServer {
     //// Create separate Route classes to handle each route; this keeps your
     //// code clean; using small classes.
 
-    // Shows the Checkers game Home page.
-    get(HOME_URL, new GetHomeRoute(templateEngine));
+    //shows the Checkers game Home page.
+    get(HOME_URL, new GetHomeRoute(playerLobby, templateEngine));
 
-    //
+    //shows sign in page
+    get(SIGNIN_URL, new GetLogInRoute(templateEngine));
+
+    //shows game page
+    get(GAME_URL, new GetGameRoute(templateEngine));
+
+    //shows player list page
+    post(SIGNIN_URL, new PostSignInRoute(playerLobby, templateEngine));
+
+    //challenges a player to a game
+    post(GAME_URL, new PostChallengeRoute(playerLobby, templateEngine));
+
     LOG.config("WebServer is initialized.");
   }
 
