@@ -82,7 +82,7 @@ public class PostSignInRoute implements Route {
      * @throws Exception
      */
     @Override
-    public String handle(Request request, Response response) throws Exception {
+    public Object handle(Request request, Response response) {
         // start building the View-Model
         final Map<String, Object> vm = new HashMap<>();
 
@@ -109,6 +109,5 @@ public class PostSignInRoute implements Route {
             return templateEngine.render(new ModelAndView(vm, "home.ftl"));
         }
     }
-
 
 }
