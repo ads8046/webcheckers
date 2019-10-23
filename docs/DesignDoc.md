@@ -65,12 +65,13 @@ This section describes the features of the application.
 
 This section describes the application domain.
 
-![The WebCheckers Domain Model](domain-model-placeholder.png)
+![The WebCheckers Domain Model](domain-model.png)
 
-> _Provide a high-level overview of the domain for this application. You
-> can discuss the more important domain entities and their relationship
-> to each other._
-
+ Provide a high-level overview of the domain for this application. You
+ can discuss the more important domain entities and their relationship
+ to each other. Major domain entities include things like the board and player
+ as well as the relationships those entities have to other entities, such as 
+ the board containing the game pieces and players making moves.
 
 ## Architecture and Design
 
@@ -98,7 +99,7 @@ Details of the components within these tiers are supplied below.
 This section describes the web interface flow; this is how the user views and interacts
 with the WebCheckers application.
 
-![The WebCheckers Web Interface Statechart](web-interface-placeholder.png)
+![The WebCheckers Web Interface Statechart](state-diagram.png)
 
 > _Provide a summary of the application's user interface.  Describe, from
 > the user's perspective, the flow of the pages in the web application._
