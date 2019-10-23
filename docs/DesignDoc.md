@@ -56,10 +56,11 @@ This section describes the application domain.
 
 ![The WebCheckers Domain Model](domain-model.png)
 
-> _Provide a high-level overview of the domain for this application. You
-> can discuss the more important domain entities and their relationship
-> to each other._
-
+ Provide a high-level overview of the domain for this application. You
+ can discuss the more important domain entities and their relationship
+ to each other. Major domain entities include things like the board and player
+ as well as the relationships those entities have to other entities, such as 
+ the board containing the game pieces and players making moves.
 
 ## Architecture and Design
 
