@@ -24,6 +24,7 @@ public class PostSignInRouteTest {
         final PostSignInRoute CuT = new PostSignInRoute(playerLobby, templateEngine);
 
         assertTrue(CuT.isValid("Player"), "Username not valid");
+        assertFalse(CuT.isValid(""), "Username cannot be empty");
         assertFalse(CuT.isValid("!"), "Username cannot have only one non-alphanumeric character");
     }
 }

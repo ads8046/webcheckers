@@ -18,9 +18,25 @@ public class PlayerTest {
     }
 
     @Test
+    public void testGetOpponent() {
+        final Player CuT = new Player("Player");
+
+        assertNull(CuT.getOpponent());
+    }
+
+    @Test
+    public void testGetBoard() {
+        final Player CuT = new Player("Player");
+
+        assertNull(CuT.getBoard());
+    }
+
+
+    @Test
     public void testEqualPlayer() {
         final Player CuT = new Player("Player1");
 
         assertEquals(new Player("Player1"), CuT);
+
     }
 }
