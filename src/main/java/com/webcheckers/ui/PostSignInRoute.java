@@ -32,7 +32,7 @@ public class PostSignInRoute implements Route {
      */
     public PostSignInRoute(PlayerLobby playerLobby, TemplateEngine templateEngine) {
         // validation
-        Objects.requireNonNull(playerLobby, "gameCenter must not be null");
+        Objects.requireNonNull(playerLobby, "playerLobby must not be null");
         Objects.requireNonNull(templateEngine, "templateEngine must not be null");
         //
         this.playerLobby = playerLobby;
@@ -44,7 +44,7 @@ public class PostSignInRoute implements Route {
      * @param badUsername invalid username from player
      * @return message to display that username was invalid
      */
-    private static String invalidUsernameMessage(final String badUsername) {
+    public static String invalidUsernameMessage(final String badUsername) {
         return String.format("You entered %s; Please enter a valid username.", badUsername);
     }
 
@@ -53,7 +53,7 @@ public class PostSignInRoute implements Route {
      * @param badUsername invalid username from player
      * @return message to display that the username is taken already
      */
-    private static String takenUsernameMessage(final String badUsername) {
+    public static String takenUsernameMessage(final String badUsername) {
         return "The username you have chosen is already taken";
     }
 
@@ -62,7 +62,7 @@ public class PostSignInRoute implements Route {
      * @param s username input
      * @return true if its valid, false otherwise
      */
-    private boolean isValid(String s) {
+    public boolean isValid(String s) {
         if (s.length() == 0) {
             return false;
         }
