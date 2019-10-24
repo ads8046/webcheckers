@@ -9,7 +9,7 @@ geometry: margin=1in
 > and appear in the generated PDF in italics._
 
 ## Team Information
-* Team name: TEAMNAME
+* Team name: TEAM B-Lady Blue
 * Team members
   * CAMERON PERDUE
   * MASON ZHONG
@@ -68,15 +68,14 @@ This section describes the application domain.
 ![The WebCheckers Domain Model](domain-model.png)
 
  Player(entity) signs into an Account(entity) and observes the Board(entity).
- The Account accepts a unique username from the player.
- The game board  comprises of Space(s)(entity) and the player makes moves on the board
- using his account.
- Spaces are either black or white and may or may not be occupied by 
- a Piece (entity). Pieces are red or blue in color, regular or king in type
- and can make a legal Move (entity). Move is an entity that allows the piece to be moved
- to a legal space in coformity with the American rules of checkers. 
- Our enhancements are the Spectator (entity) that allows players to observe 
- the board and an AI opponent(entity) to allow single player mode in the game.
+ The Account accepts a unique username from the player.The game board comprises of 
+ Space(s)(entity) and the player makes moves on the boardusing his account. Spaces
+ are either black or white and may or may not be occupied by a Piece (entity). Pieces
+ are red or blue in color, regular or king in type and can make a legal Move (entity).
+ Move is an entity that allows the piece to be moved to a legal space in coformity 
+ with the American rules of checkers. Our enhancements are the Spectator (entity) that 
+ allows players to observe the board and an AI opponent(entity) to allow single player 
+ mode in the game.
 
 ## Architecture and Design
 
