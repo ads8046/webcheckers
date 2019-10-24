@@ -67,11 +67,16 @@ This section describes the application domain.
 
 ![The WebCheckers Domain Model](domain-model.png)
 
- Provide a high-level overview of the domain for this application. You
- can discuss the more important domain entities and their relationship
- to each other. Major domain entities include things like the board and player
- as well as the relationships those entities have to other entities, such as 
- the board containing the game pieces and players making moves.
+ Player(entity) signs into an Account(entity) and observes the Board(entity).
+ The Account accepts a unique username from the player.
+ The game board  comprises of Space(s)(entity) and the player makes moves on the board
+ using his account.
+ Spaces are either black or white and may or may not be occupied by 
+ a Piece (entity). Pieces are red or blue in color, regular or king in type
+ and can make a legal Move (entity). Move is an entity that allows the piece to be moved
+ to a legal space in coformity with the American rules of checkers. 
+ Our enhancements are the Spectator (entity) that allows players to observe 
+ the board and an AI opponent(entity) to allow single player mode in the game.
 
 ## Architecture and Design
 
@@ -101,8 +106,17 @@ with the WebCheckers application.
 
 ![The WebCheckers Web Interface Statechart](state-based-diagram-TeamB.png)
 
-> _Provide a summary of the application's user interface.  Describe, from
-> the user's perspective, the flow of the pages in the web application._
+ 
+  When the server launches and the HTTP connection is made, the user is directed
+  to the Homepage of the web app. The client-side server then requests a sign-in
+  page where the user can send a form with his legal, unique username. If its
+  credentials are valid, the user is redirected to the player lobby that displays
+  the list of all online players. The user can now either challenge another player
+  or log out of his account. Once the user challenges another user, both are
+  redirected to the game page where they can have their game session. After the
+  game ends, players are notified if they won or lost and are redirected back to
+  the player lobby where they can start a new challenge or sign-out to go back to
+  homepage of the web app.
 
 
 ### UI Tier
